@@ -37,7 +37,7 @@ class _MyHomePageState extends State<_MyHomePage> {
     super.initState();
   }
 
-  void _setRandomBackgroundColor() {
+  void _setRandomBackgroundColorTextColorPosition() {
     setState(() {
       _randomBackgroundColor = _generateColor();
       _randomTextPosition = _generatePosition();
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<_MyHomePage> {
 
     return Scaffold(
       body: GestureDetector(
-        onTap: _setRandomBackgroundColor,
+        onTap: _setRandomBackgroundColorTextColorPosition,
         child: Container(
           color: _randomBackgroundColor,
           alignment: _randomTextPosition,
