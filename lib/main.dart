@@ -37,14 +37,23 @@ class _MyHomePageState extends State<_MyHomePage> {
     super.initState();
   }
 
-  void _setRandomBackgroundColorTextColorPosition() {
+  void _setRandomBackgroundColor() {
     setState(() {
       _randomBackgroundColor = _generateColor();
-      _randomTextPosition = _generatePosition();
+    });
+  }
 
+  void _setRandomTextColor() {
+    setState(() {
       do {
         _randomTextColor = _generateColor();
       } while (_randomBackgroundColor == _randomTextColor);
+    });
+  }
+
+  void _setRandomTextPosition() {
+    setState(() {
+      _randomTextPosition = _generatePosition();
     });
   }
 
@@ -83,7 +92,11 @@ class _MyHomePageState extends State<_MyHomePage> {
 
     return Scaffold(
       body: GestureDetector(
-        onTap: _setRandomBackgroundColorTextColorPosition,
+        onTap: () {
+          _setRandomBackgroundColor();
+          _setRandomTextColor();
+          _setRandomTextPosition();
+        },
         child: Container(
           color: _randomBackgroundColor,
           alignment: _randomTextPosition,
